@@ -27,6 +27,8 @@ public class AddServlet extends HttpServlet{
 		PrintWriter out = res.getWriter();
 		out.println("The Full Name is : " + fullName);
 	
+		req.setAttribute("fullName", fullName);
+		
 		RequestDispatcher rd = req.getRequestDispatcher("square");
 		rd.forward(req, res);
 		
