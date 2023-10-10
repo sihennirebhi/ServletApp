@@ -11,4 +11,16 @@
 		<url-pattern>/conca</url-pattern>
 	</servlet-mapping>
 
+	
+	<servlet>
+		<servlet-name>myserv2</servlet-name>
+		<servlet-class>com.demo.sihenni.SquareSertvlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>myserv2</servlet-name>
+		<url-pattern>/square</url-pattern>
+	</servlet-mapping>
+
+
 </web-app>
