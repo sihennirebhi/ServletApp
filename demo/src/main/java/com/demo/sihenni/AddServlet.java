@@ -8,6 +8,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 public class AddServlet extends HttpServlet{
 	
@@ -24,10 +25,15 @@ public class AddServlet extends HttpServlet{
 		
 		String fullName = fNameReq + " " + lNameReq;
 		
-		PrintWriter out = res.getWriter();
-		out.println("The Full Name is : " + fullName);
-	
-		res.sendRedirect("square?fullName=" + fullName ); //sending data from servlet to servlet with sendRedirect 
+//		PrintWriter out = res.getWriter();
+//		out.println("The Full Name is : " + fullName);
+		
+		
+		// using session
+		HttpSession session = req.getSession();
+		session.setAttribute("fullName", fullName);
+		
+//		res.sendRedirect("square?fullName=" + fullName ); //sending data from servlet to servlet with sendRedirect 
 														  // & URL Rewriting
 		
 //		req.setAttribute("fullName", fullName);
