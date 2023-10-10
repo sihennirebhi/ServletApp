@@ -27,10 +27,13 @@ public class AddServlet extends HttpServlet{
 		PrintWriter out = res.getWriter();
 		out.println("The Full Name is : " + fullName);
 	
-		req.setAttribute("fullName", fullName);
+		res.sendRedirect("square?fullName=" + fullName ); //sending data from servlet to servlet with sendRedirect 
+														  // & URL Rewriting
 		
-		RequestDispatcher rd = req.getRequestDispatcher("square");
-		rd.forward(req, res);
+//		req.setAttribute("fullName", fullName);
+		
+//		RequestDispatcher rd = req.getRequestDispatcher("square");
+//		rd.forward(req, res);
 		
 	}
 

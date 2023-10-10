@@ -12,8 +12,9 @@ public class SquareSertvlet extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
 		
 
-		String fullName = (String) req.getAttribute("fullName");
-		// using Request Dispatcher (RequestDispatcher Interface)
+//String fullName = (String) req.getAttribute("fullName");
+		String fullName =  req.getParameter("fullName");
+//using Request Dispatcher (RequestDispatcher Interface)
 		PrintWriter out = res.getWriter();
 		out.println("You R in the Square servlet & the Full Name is : " + fullName);
 		
