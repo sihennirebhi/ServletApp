@@ -17,11 +17,12 @@ public class SquareSertvlet extends HttpServlet {
 //		String fullName =  req.getParameter("fullName");
 		
 		HttpSession session = req.getSession();
-		String fullName = (String) req.getAttribute("fullName");
-		
+		String fullName = (String) session.getAttribute("fullName");
+			
 //using Request Dispatcher (RequestDispatcher Interface)
 		PrintWriter out = res.getWriter();
 		out.println("This is the 3rd time in the Square servlet & the Full Name is : " + fullName);
+		System.out.println("SquareServlet : " + fullName);
 		
 		
 		
