@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -30,10 +31,16 @@ public class AddServlet extends HttpServlet{
 		
 		
 		// using session
-		HttpSession session = req.getSession();
-		session.setAttribute("fullName", fullName);
-		System.out.println("AddServlet : " + fullName);
-		System.out.println("The Attribute : " + session.getAttribute("fullName"));
+//		HttpSession session = req.getSession();
+//		session.setAttribute("fullName", fullName);
+//		System.out.println("AddServlet : " + fullName);
+//		System.out.println("The Attribute : " + session.getAttribute("fullName"));
+
+		
+		//using Cookies
+		Cookie cookie = new Cookie("fullName", fullName);
+		res.addCookie(cookie);
+		
 		res.sendRedirect("square"); //sending data from servlet to servlet with sendRedirect 
 														  // & URL Rewriting
 		
