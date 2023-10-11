@@ -20,18 +20,21 @@ public class SquareSertvlet extends HttpServlet {
 //		HttpSession session = req.getSession();
 //		String fullName = (String) session.getAttribute("fullName");
 		
-		String fullName ="";
+		String fName ="";
+		String lName ="";
 		Cookie cookies[] = req.getCookies();
 		for (Cookie c : cookies) {
-			if (c.getName().equals("fullName"))
-				fullName = c.getValue();
+			if (c.getName().equals("fname"))
+				fName = (String) c.getValue();
+			if (c.getName().equals("lname"))
+				lName = (String) c.getValue();
 			
 		}
 			
 //using Request Dispatcher (RequestDispatcher Interface)
 		PrintWriter out = res.getWriter();
-		out.println("This is the 4rd time in the Square servlet & the Full Name is : " + fullName);
-		System.out.println("SquareServlet &  cookie : " + fullName);
+		out.println("This is the 5rd time in the Square servlet & the Full Name is : " + fName + " " + lName);
+		System.out.println("SquareServlet &  cookie : " + fName + " " + lName);
 		
 		
 		

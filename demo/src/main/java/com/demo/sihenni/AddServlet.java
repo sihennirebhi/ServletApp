@@ -2,6 +2,7 @@ package com.demo.sihenni;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLEncoder;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -24,7 +25,7 @@ public class AddServlet extends HttpServlet{
 		String fNameReq = req.getParameter("fname");
 		String lNameReq = req.getParameter("lname");
 		
-		String fullName = fNameReq + " " + lNameReq;
+//		String fullName = fNameReq + " " + lNameReq;
 		
 //		PrintWriter out = res.getWriter();
 //		out.println("The Full Name is : " + fullName);
@@ -38,9 +39,11 @@ public class AddServlet extends HttpServlet{
 
 		
 		//using Cookies
-		Cookie cookie = new Cookie("fullName", fullName);
-		res.addCookie(cookie);
-		
+		//Cookie cookie = new Cookie("fullName", URLEncoder.encode( fullName, "UTF-8" )); //URLEncoder.encode( fullName, "UTF-8" )
+		Cookie cookieFName = new Cookie("fname", fNameReq);
+		Cookie cookieLName = new Cookie("lname", lNameReq);
+		res.addCookie(cookieFName);
+		res.addCookie(cookieLName);
 		res.sendRedirect("square"); //sending data from servlet to servlet with sendRedirect 
 														  // & URL Rewriting
 		
